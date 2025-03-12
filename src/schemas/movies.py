@@ -32,7 +32,6 @@ class PaginationParams(BaseModel):
     page: int = Field(1, ge=1, description="Page number >= 1")
     per_page: int = Field(10, ge=1, le=20, description="Number of movies per page")
 
-    @computed_field
     @property
     def offset(self) -> int:
         return (self.page - 1) * self.per_page
